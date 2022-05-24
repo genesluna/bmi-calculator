@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/bmi-calculator/static/css/main.c5b1ca67.css",
+    "main.js": "/bmi-calculator/static/js/main.485c9f83.js",
+    "static/js/787.17dbfb13.chunk.js": "/bmi-calculator/static/js/787.17dbfb13.chunk.js",
+    "static/media/morbidObese.webp": "/bmi-calculator/static/media/morbidObese.3b69702640807059b187.webp",
+    "static/media/overWeight.webp": "/bmi-calculator/static/media/overWeight.2a3e09d3cc9290d81e7a.webp",
+    "static/media/obese.webp": "/bmi-calculator/static/media/obese.faec1902838c43371641.webp",
+    "static/media/underWeight.webp": "/bmi-calculator/static/media/underWeight.e89e4b97647d938cf476.webp",
+    "static/media/normalWeight.webp": "/bmi-calculator/static/media/normalWeight.4d19798438f7428cd73a.webp",
+    "static/media/bottle.webp": "/bmi-calculator/static/media/bottle.d465970c7d8f13049757.webp",
+    "static/media/glass.webp": "/bmi-calculator/static/media/glass.d4f5fdfce8365647d152.webp",
+    "index.html": "/bmi-calculator/index.html",
+    "main.c5b1ca67.css.map": "/bmi-calculator/static/css/main.c5b1ca67.css.map",
+    "main.485c9f83.js.map": "/bmi-calculator/static/js/main.485c9f83.js.map",
+    "787.17dbfb13.chunk.js.map": "/bmi-calculator/static/js/787.17dbfb13.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c5b1ca67.css",
+    "static/js/main.485c9f83.js"
+  ]
+}
