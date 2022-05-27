@@ -18,7 +18,7 @@ export default function TitleAppBar() {
           >
             <ScaleOutlinedIcon />
             <Typography variant="h6" component="div">
-              Calculadora de IMC e IA
+              Calculadora de IMC e IDA
             </Typography>
           </Stack>
         </Container>
