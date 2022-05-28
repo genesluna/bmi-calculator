@@ -111,13 +111,13 @@ export default function BMICalculator() {
       setUserHeightError(true);
       setUserHeightMessage("O preenchimento desse campo é obrigatório");
       success = false;
-    } else if (height === "0") {
+    } else if (height <= 0) {
       setUserHeightError(true);
-      setUserHeightMessage("O valor não pode ser zero");
+      setUserHeightMessage("O valor não pode ser menor ou igual a zero");
       success = false;
-    } else if (height < 0) {
+    } else if (height.match(/^[0-9]/) != null) {
       setUserHeightError(true);
-      setUserHeightMessage("O valor não pode ser negativo");
+      setUserHeightMessage("O valor deve ser em centimetros");
       success = false;
     }
 
@@ -125,13 +125,13 @@ export default function BMICalculator() {
       setUserWeightError(true);
       setUserWeightMessage("O preenchimento desse campo é obrigatório");
       success = false;
-    } else if (weight === "0") {
+    } else if (weight <= 0) {
       setUserWeightError(true);
-      setUserWeightMessage("O valor não pode ser zero");
+      setUserWeightMessage("O valor não pode ser menor ou igual a zero");
       success = false;
-    } else if (weight < 0) {
+    } else if (weight.match(/^[0-9]/) != null) {
       setUserWeightError(true);
-      setUserWeightMessage("O valor não pode ser negativo");
+      setUserWeightMessage("O valor deve ser um número inteiro");
       success = false;
     }
 
@@ -139,13 +139,13 @@ export default function BMICalculator() {
       setUserAgeError(true);
       setUserAgeMessage("O preenchimento desse campo é obrigatório");
       success = false;
-    } else if (age === "0") {
+    } else if (age <= 0) {
       setUserAgeError(true);
-      setUserAgeMessage("O valor não pode ser zero");
+      setUserAgeMessage("O valor não pode ser menor ou igual a zero");
       success = false;
-    } else if (age < 0) {
+    } else if (age.match(/^[0-9]/) != null) {
       setUserAgeError(true);
-      setUserAgeMessage("O valor não pode ser negativo");
+      setUserAgeMessage("O valor deve ser um número inteiro");
       success = false;
     }
 
