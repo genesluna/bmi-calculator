@@ -20,70 +20,88 @@ export default function BMICalculator() {
   const [userHeightMessage, setUserHeightMessage] = useState("");
   const [userWeightError, setUserWeightError] = useState(false);
   const [userWeightMessage, setUserWeightMessage] = useState("");
+  const [userAgeError, setUserAgeError] = useState(false);
+  const [userAgeMessage, setUserAgeMessage] = useState("");
   const [showResults, setShowResults] = useState(false);
   const [imageSrc, setImageSrc] = useState("");
   const [height, setHeight] = useState("");
   const [waterConsumption, setWaterConsumption] = useState(0);
   const [weight, setWeight] = useState("");
+  const [age, setAge] = useState("");
   const [bmiMessage, setBmiMessage] = useState("");
   const [bmi, setBmi] = useState("");
 
   let calcBmi = () => {
+    let HeightInMeters = parseInt(height) / 100;
+    let bmi = parseInt(weight) / Math.pow(HeightInMeters, 2);
+    setBmi("Seu IMC é: " + bmi.toFixed(1));
+
+    switch (true) {
+      case bmi <= 18.5:
+        setBmiMessage("Abaixo do peso ideal");
+        setImageSrc(underWeight);
+        break;
+
+      case bmi > 18.5 && bmi < 25:
+        setBmiMessage("Peso ideal");
+        setImageSrc(normalWeight);
+        break;
+
+      case bmi >= 25 && bmi < 30:
+        setBmiMessage("Acima do peso ideal");
+        setImageSrc(overWeight);
+        break;
+
+      case bmi >= 30 && bmi < 40:
+        setBmiMessage("Você tem obesidade");
+        setImageSrc(obese);
+        break;
+
+      case bmi >= 40:
+        setBmiMessage("Você tem obesidade mórbida");
+        setImageSrc(morbidObese);
+        break;
+
+      default:
+        break;
+    }
+  };
+
+  let calcDwi = () => {
+    switch (true) {
+      case age >= 1 && age <= 17:
+        setWaterConsumption(weight * 40);
+        break;
+
+      case age > 17 && age <= 55:
+        setWaterConsumption(weight * 35);
+        break;
+
+      case age > 55 && age <= 65:
+        setWaterConsumption(weight * 30);
+        break;
+
+      case age > 65:
+        setWaterConsumption(weight * 25);
+        break;
+
+      default:
+        break;
+    }
+  };
+
+  let handleCalculations = () => {
     if (isFormValid()) {
-      let HeightInMeters = parseInt(height) / 100;
-      let bmi = parseInt(weight) / Math.pow(HeightInMeters, 2);
-      setBmi("Seu IMC é: " + bmi.toFixed(1));
-
-      switch (true) {
-        case bmi <= 18.5:
-          setBmiMessage("Abaixo do peso ideal");
-          setImageSrc(underWeight);
-          break;
-
-        case bmi > 18.5 && bmi < 25:
-          setBmiMessage("Peso ideal");
-          setImageSrc(normalWeight);
-          break;
-
-        case bmi >= 25 && bmi < 30:
-          setBmiMessage("Acima do peso ideal");
-          setImageSrc(overWeight);
-          break;
-
-        case bmi >= 30 && bmi < 40:
-          setBmiMessage("Você tem obesidade");
-          setImageSrc(obese);
-          break;
-
-        case bmi >= 40:
-          setBmiMessage("Você tem obesidade mórbida");
-          setImageSrc(morbidObese);
-          break;
-
-        default:
-          break;
-      }
-      setWaterConsumption(weight * 35);
+      calcBmi();
+      calcDwi();
       setShowResults(true);
     }
   };
 
-  let refresh = () => {
-    setHeight("");
-    setWeight("");
-    setBmi("");
-    setBmiMessage("");
-    setImageSrc("");
-    setShowResults(false);
-  };
-
-  function isFormValid() {
+  let isFormValid = () => {
     let success = true;
 
-    setUserHeightError(false);
-    setUserHeightMessage("");
-    setUserWeightError(false);
-    setUserWeightMessage("");
+    refreshFormErrors();
 
     if (height === "") {
       setUserHeightError(true);
@@ -113,8 +131,40 @@ export default function BMICalculator() {
       success = false;
     }
 
+    if (age === "") {
+      setUserAgeError(true);
+      setUserAgeMessage("O preenchimento desse campo é obrigatório");
+      success = false;
+    } else if (age === "0") {
+      setUserAgeError(true);
+      setUserAgeMessage("O valor não pode ser zero");
+      success = false;
+    } else if (age < 0) {
+      setUserAgeError(true);
+      setUserAgeMessage("O valor não pode ser negativo");
+      success = false;
+    }
+
     return success;
-  }
+  };
+
+  let refresh = () => {
+    setHeight("");
+    setWeight("");
+    setBmi("");
+    setBmiMessage("");
+    setImageSrc("");
+    setShowResults(false);
+  };
+
+  let refreshFormErrors = () => {
+    setUserHeightError(false);
+    setUserHeightMessage("");
+    setUserWeightError(false);
+    setUserWeightMessage("");
+    setUserAgeError(false);
+    setUserAgeMessage("");
+  };
 
   return (
     <Paper elevation={3} sx={{ padding: 3 }}>
@@ -123,6 +173,19 @@ export default function BMICalculator() {
       </h3>
 
       <Stack sx={{ marginTop: 4 }} spacing={2}>
+        <TextField
+          error={userAgeError}
+          required
+          id="userAge"
+          label="Idade (anos)"
+          variant="standard"
+          fullWidth
+          onChange={(e) => setAge(e.target.value)}
+          type="number"
+          value={age}
+          helperText={userAgeMessage}
+        />
+
         <TextField
           error={userHeightError}
           required
@@ -225,7 +288,7 @@ export default function BMICalculator() {
           variant="outlined"
           startIcon={<CalculateIcon />}
           sx={{ color: "rgb(33, 138, 174)" }}
-          onClick={calcBmi}
+          onClick={handleCalculations}
         >
           Calcular
         </Button>
