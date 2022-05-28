@@ -1,1 +1,1 @@
-# Calculadora de IMC e ingestão de água
+# Calculadora de IMC e ingestão diária de água
