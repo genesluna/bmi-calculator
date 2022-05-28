@@ -157,6 +157,7 @@ export default function BMICalculator() {
   let refresh = () => {
     setHeight("");
     setWeight("");
+    setAge("");
     setBmi("");
     setBmiMessage("");
     setImageSrc("");
