@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/bmi-calculator/static/css/main.c5b1ca67.css",
-    "main.js": "/bmi-calculator/static/js/main.de039e3d.js",
+    "main.js": "/bmi-calculator/static/js/main.10d52e7c.js",
     "static/js/787.17dbfb13.chunk.js": "/bmi-calculator/static/js/787.17dbfb13.chunk.js",
     "static/media/morbidObese.webp": "/bmi-calculator/static/media/morbidObese.3b69702640807059b187.webp",
     "static/media/overWeight.webp": "/bmi-calculator/static/media/overWeight.2a3e09d3cc9290d81e7a.webp",
@@ -12,11 +12,11 @@
     "static/media/glass.webp": "/bmi-calculator/static/media/glass.d4f5fdfce8365647d152.webp",
     "index.html": "/bmi-calculator/index.html",
     "main.c5b1ca67.css.map": "/bmi-calculator/static/css/main.c5b1ca67.css.map",
-    "main.de039e3d.js.map": "/bmi-calculator/static/js/main.de039e3d.js.map",
+    "main.10d52e7c.js.map": "/bmi-calculator/static/js/main.10d52e7c.js.map",
     "787.17dbfb13.chunk.js.map": "/bmi-calculator/static/js/787.17dbfb13.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c5b1ca67.css",
-    "static/js/main.de039e3d.js"
+    "static/js/main.10d52e7c.js"
   ]
 }
