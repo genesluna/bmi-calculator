@@ -105,6 +105,8 @@ export default function BMICalculator() {
   let isFormValid = () => {
     let success = true;
 
+    let pattern = new RegExp("^[1-9]\\d*$");
+
     refreshFormErrors();
 
     if (height === "") {
@@ -115,7 +117,7 @@ export default function BMICalculator() {
       setUserHeightError(true);
       setUserHeightMessage("O valor não pode ser menor ou igual a zero");
       success = false;
-    } else if (height.match(/^[0-9]/) != null) {
+    } else if (height.search(pattern)) {
       setUserHeightError(true);
       setUserHeightMessage("O valor deve ser em centimetros");
       success = false;
@@ -129,7 +131,7 @@ export default function BMICalculator() {
       setUserWeightError(true);
       setUserWeightMessage("O valor não pode ser menor ou igual a zero");
       success = false;
-    } else if (weight.match(/^[0-9]/) != null) {
+    } else if (weight.search(pattern)) {
       setUserWeightError(true);
       setUserWeightMessage("O valor deve ser um número inteiro");
       success = false;
@@ -143,7 +145,7 @@ export default function BMICalculator() {
       setUserAgeError(true);
       setUserAgeMessage("O valor não pode ser menor ou igual a zero");
       success = false;
-    } else if (age.match(/^[0-9]/) != null) {
+    } else if (age.search(pattern)) {
       setUserAgeError(true);
       setUserAgeMessage("O valor deve ser um número inteiro");
       success = false;
