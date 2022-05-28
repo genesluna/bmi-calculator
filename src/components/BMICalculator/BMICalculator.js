@@ -16,7 +16,6 @@ import glass from "../../assets/glass.webp";
 import bottle from "../../assets/bottle.webp";
 
 export default function BMICalculator() {
-  //#region States
   const [userHeightError, setUserHeightError] = useState(false);
   const [userHeightMessage, setUserHeightMessage] = useState("");
   const [userWeightError, setUserWeightError] = useState(false);
@@ -31,7 +30,6 @@ export default function BMICalculator() {
   const [age, setAge] = useState("");
   const [bmiMessage, setBmiMessage] = useState("");
   const [bmi, setBmi] = useState("");
-  //#endregion
 
   let calcBmi = () => {
     let HeightInMeters = parseInt(height) / 100;
